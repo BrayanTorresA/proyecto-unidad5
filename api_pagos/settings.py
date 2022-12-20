@@ -37,6 +37,7 @@ ALLOWED_HOSTS = []
 LOCAL_APPS=[
     'users.apps.UsersConfig',
     'servicios.apps.ServiciosConfig',
+    'pagos.apps.PagosConfig',
 ]
 
 THIRD_APPS = [
@@ -122,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
@@ -149,5 +150,20 @@ SIMPLE_JWT ={
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_simplejwt.authentication.JWTAuthentication",#autenticacion con simpleJWT
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.ScopedRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'pagos': '1000/day',
+
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
 }
