@@ -38,6 +38,7 @@ LOCAL_APPS=[
     'users.apps.UsersConfig',
     'servicios.apps.ServiciosConfig',
     'pagos.apps.PagosConfig',
+    'versionedPagos.apps.VersionedpagosConfig',
 ]
 
 THIRD_APPS = [
