@@ -45,6 +45,7 @@ THIRD_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "rest_framework.authtoken",
+    'django_filters',
 ]
 
 DJANGO_APPS = [
@@ -158,7 +159,7 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.ScopedRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'pagos': '1000/day',
+        'api_pagosv2': '1000/day',
 
     }
 }
