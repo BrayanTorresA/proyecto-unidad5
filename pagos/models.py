@@ -16,3 +16,10 @@ class PaymnentUser(models.Model):
 
     class Meta:
         db_table = "pagos"
+
+class ExpiredPayments(models.Model):
+    pago_usuario=models.ForeignKey(PaymnentUser,on_delete=models.CASCADE,related_name="pago_usuario")
+    penalty_fee_amount=models.FloatField(default=0.0)
+
+    class Meta:
+        db_table="pagos_vencidos"
